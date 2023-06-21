@@ -21,28 +21,32 @@ const monster = {
 
 // Character constructor
 function Character(data) {
-  this.elementId = data.elementId;
-  this.name = data.name;
-  this.avatar = data.avatar;
-  this.health = data.health;
-  this.diceCount = data.diceCount;
+  Object.assign(this, data);
+
   this.getCharacterHtml = function() {
     const { elementId, name, avatar, health, diceCount } = this;
-    document.getElementById(elementId).innerHTML = 
-    ` <div class="character-card">
+    let diceHtml = this.getDiceHtml(diceCount);
+
+    return ` 
+      <div class="character-card">
         <h4 class="name">${name}</h4>
         <img class="avatar" src="${avatar}">
         <div class="health">health: ${health}</div>
-        <div class="dice-container">${getDiceHtml(diceCount)}</div>
+        <div class="dice-container">${diceHtml}</div>
       </div>
     `
   }
+
+  this.getDiceHtml = function(diceCount) { // generate dice roll html
+    return getDiceRollArray(diceCount).map(num => { // map over array from getDiceRollArray
+      return `<div class="dice">${num}</div>` // generate html element for each num
+    }).join(''); // join the array into a new string
+  }
+
 }
 
 const wizard = new Character(hero);
 const orc = new Character(monster);
-wizard.getCharacterHtml();
-orc.getCharacterHtml();
 
 // Generate a random dice roll array, based on diceCount parameter
 function getDiceRollArray(diceCount) {
@@ -50,9 +54,11 @@ function getDiceRollArray(diceCount) {
   return new Array(diceCount).fill(0).map(() => Math.floor(Math.random() * 6) + 1);
 }
 
-// Generate the html for the dice roll
-function getDiceHtml(diceCount) {
-  return getDiceRollArray(diceCount).map(num => { // map over array from getDiceRollArray
-    return `<div class="dice">${num}</div>` // generate html element for each num
-  }).join(''); // join the array into a new string
+// render characters 
+function render() {
+  // apply character card html to the DOM
+  document.getElementById(wizard.elementId).innerHTML = getCharacterHtml();
+  document.getElementById(orc.elementId).innerHTML = getCharacterHtml();
 }
+
+render();
