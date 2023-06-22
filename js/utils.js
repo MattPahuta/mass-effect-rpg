@@ -6,5 +6,12 @@ function getDiceRollArray(diceCount) {
   return new Array(diceCount).fill(0).map(() => Math.floor(Math.random() * 6) + 1);
 }
 
+// Generate placeholder html for the dice roll
+function getDicePlaceholderHtml(diceCount) {
+  return new Array(diceCount).fill(0).map(() => {
+    return `<div class="placeholder-dice"></div>`
+  }).join('')
+}
+
 // use a named export because more functions will live in the utils file
-export { getDiceRollArray }
+export { getDiceRollArray, getDicePlaceholderHtml }
