@@ -99,6 +99,7 @@ main {
 } 
 
 .game-container {
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,17 +107,17 @@ main {
   flex-wrap: wrap;
 }
 
-@media(min-width:550px){
-  .game-container {
-    flex-direction: row;
-    justify-content: center;
-  } 
+.characters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
+
 .character-card {
-  margin-top: .5rem;
-  min-width: 260px;
-  max-width: 325px;
+
+  min-width: 320px;
+  max-width: 400px;
   padding: 1em;
 
   display: flex;
@@ -126,7 +127,6 @@ main {
   font-size: 1.6rem;
   color: white;
   border-radius: 14px;
-  position: relative;
   background: #231d24;
   text-align: center;
   overflow: hidden;
@@ -135,14 +135,7 @@ main {
               0px 0px 10px rgba(117,182,214,0.2);
 }
 
-@media (min-width: 550px){
 
-  .character-card {
-    border: 0.2rem solid #000721;
-    /* width:37vw;
-    width: 300px; */
-  }
-}
 
 .name {
   margin: 1vh 0;
@@ -151,27 +144,16 @@ main {
   font-size: 90%;
 }
 
-@media(min-width:550px){
-  .name {
-  margin: 2vh 0;
-  font-size: 100%;
-  }
-}
 
 .avatar {
-  width: 15vh;
-  border: 2px solid #000721;
-  max-width:100%;
+  width: 100%;
+  border: 5px solid #000721;
+
   opacity: 0.8;
   border-radius: 10px;
   background-color: rgba(0, 7, 33, 0.8);
 }
 
-@media(min-width:550px){
-  .avatar {
-    width: 25vh;
-  }
-}
 
 .health {
   font-size:1.1rem;
@@ -183,11 +165,6 @@ main {
   letter-spacing: 0.03em
 }
 
-@media(min-width:550px){
-  .health {
-    margin: 2em 0;
-  }
-}
 
 .health b {
   font-weight: bold;
@@ -220,14 +197,9 @@ main {
   gap: .5rem;
 }
 
-@media(min-width:550px){
-  .dice-container {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-}
 
-.dice, .placeholder-dice {
+.dice, 
+.placeholder-dice {
   height: 5.5vh;
   width: 5.5vh;
   background: whitesmoke;   
@@ -244,50 +216,74 @@ main {
   font-weight: 700;
 }
 
-@media(min-width:550px){
-  .dice-container .dice, .dice-container .placeholder-dice{
-    height:10vh;
-    width:10vh;
-    line-height: 10.5vh;
-  }
-}
-
-.dice-container .placeholder-dice{
+.dice-container,
+.placeholder-dice {
   background-color: transparent;
 }
 
 button {
   margin-top: .5rem;
-  font-family: 'MedievalSharp', cursive;
+  font-family: inherit;
   background-color: #fcc02a;
   border: 2px solid #963404;
   outline: none;
-  padding-left:5vw;
-  padding-right:5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 1.5rem;
   border-radius: 6px;
   cursor: pointer;
-  color:#963404;
-  height:9vh;
+  color: #963404;
+  height: 9vh;
   box-shadow: 0px 6px 10px -4px rgba(0,0,0,0.4);
 }
 
-@media(min-width:550px){
-  button {
-    margin-top: 0;
-  }
-}
 
 button:focus { outline: 0 }
 
-.end-game{
+.end-game {
   margin-top: 25%;
   text-align: center;
 }
 
-.end-emoji{
+.end-emoji {
   font-size: 80px;
+}
+
+@media (min-width: 600px) {
+
+  .game-container {
+    justify-content: center;
+  } 
+  .characters {
+    flex-direction: row;
+  }
+
+  .character-card {
+    border: 0.2rem solid #000721;
+    /* width:37vw;
+    width: 300px; */
+  }
+
+  .name {
+    margin: 2vh 0;
+    font-size: 100%;
+  }
+
+  .avatar {
+    width: 25vh;
+  }
+
+  .health {
+    margin: 2em 0;
+  }
+
+  .dice-container {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+
 }

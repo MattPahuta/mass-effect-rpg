@@ -21,10 +21,18 @@ function Character(data) {
   //   }).join(''); // join the array into a new string
   // }
 
-  this.getCharacterHtml = function() {
-    const { elementId, name, avatar, health, diceCount, diceArray } = this;
-    // let diceHtml = this.getDiceHtml(diceCount);
+  // take damage from opponent
+  this.takeDamage = function(attackScoreArray) {
+    const totalAttackScore = attackScoreArray.reduce((acc, currAttack) => {
+      return acc + currAttack
+    })
+    console.log(`${this.name} takes ${attackScoreArray} damage`)
+    this.health -= totalAttackScore;
+  }
 
+  this.getCharacterHtml = function() {
+    const { name, avatar, health, diceCount, diceArray } = this;
+    // let diceHtml = this.getDiceHtml(diceCount);
     return ` 
       <div class="character-card">
         <h4 class="name">${name}</h4>
@@ -34,7 +42,6 @@ function Character(data) {
       </div>
     `
   }
-
 
 }
 
