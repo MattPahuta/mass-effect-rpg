@@ -13,5 +13,9 @@ function getDicePlaceholderHtml(diceCount) {
   }).join('')
 }
 
+// Get health bar percentage, return % of maximum health remaining
+// *** change to getHealthPercentage, change to function declaration?
+const getPercentage = (remainingHealth, maximumHealth) => (100 * remainingHealth) / maximumHealth;
+
 // use a named export because more functions will live in the utils file
-export { getDiceRollArray, getDicePlaceholderHtml }
+export { getDiceRollArray, getDicePlaceholderHtml, getPercentage }
