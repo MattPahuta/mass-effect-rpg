@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mass Effect RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style-2.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1 class="game-title">Mass Effect</h1>
+    </header>
+    <!-- characters Cards -->
+    <section class="characters">
+      <!-- hero card -->
+      <div id="hero" class="card hero">
+        <!-- begin JS injected html -->
+        <div class="character-card">
+          <h4 class="name">Shepard</h4>
+          <img class="avatar" src="./assets/fem-shep.png">
+          <div class="health">health: <span>50</span></div>
+
+          <div class="health-bar-outer">
+            <div class="health-bar-inner">
+            </div>
+          </div>
+
+          <div class="dice-container">
+            <div class="placeholder-dice"></div>
+            <div class="placeholder-dice"></div>
+            <div class="placeholder-dice"></div>
+          </div>
+        </div>
+        <!-- end JS injected html -->
+      </div>
+      <!-- monst card -->
+      <div id="monster" class="card monster">
+        <!-- begin JS injected html -->
+        <div class="character-card">
+          <h4 class="name">Husk</h4>
+          <img class="avatar" src="./assets/husk.webp">
+          <div class="health">health: <span>15</span></div>
+          <div class="health-bar-outer">
+            <div class="health-bar-inner">
+            </div>
+          </div>
+          <div class="dice-container">
+            <div class="placeholder-dice"></div>
+            <div class="placeholder-dice"></div>
+          </div>
+        </div>
+        <!-- end JS injected html -->
+      </div>
+    </section>
+
+    <section class="game-actions">
+      <button id="attack-button">Attack</button>
+    </section>
+
+  </main>
+  
+</body>
+</html>

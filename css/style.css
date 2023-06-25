@@ -156,9 +156,9 @@ main {
 
 
 .health {
-  font-size:1.1rem;
+  font-size: 1.1rem;
   font-weight: normal;
-  width:90%;
+  width: 90%;
   text-align: left;
   margin: 1vh 5%;
   color:#ccc;
@@ -174,7 +174,7 @@ main {
 .health-bar-outer {
   background: #171217;
   height: 1vh;
-  width:90%;
+  width: 90%;
   margin: 0 5%;
   border-radius: 2px;
 }
