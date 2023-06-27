@@ -2,18 +2,18 @@ import { getDicePlaceholderHtml, getDiceRollArray, getHealthPercentage } from ".
 
 // Character constructor function
 function Character(data) {
-  Object.assign(this, data);
+  Object.assign(this, data); // assign all the properties of data to this (the new object)
   this.maxHealth = this.health; // set maxHealth to initial character health
   this.diceArray = getDicePlaceholderHtml(this.diceCount);
 
-  // v2
+  // handle building the html for the rolled dice
   this.getDiceHtml = function(diceCount) {
-    this.currentDiceScore = getDiceRollArray(this.diceCount) // assign each char's currDiceScore to getDiceRollarr
+    this.currentDiceScore = getDiceRollArray(this.diceCount) // assign each char's currDiceScore to getDiceRollArray
     this.diceArray = this.currentDiceScore.map(num => // map over currentDiceScore arr, assign to diceArray
       `<div class="dice">${num}</div>`).join(''); // generate html element for each num, join the array into a new string
   }
 
-  // take damage from opponent
+  // handle taking damage from opponent
   this.takeDamage = function(attackScoreArray) {
     const totalAttackScore = attackScoreArray.reduce((acc, currAttack) => acc + currAttack);
     console.log(`${this.name} takes ${attackScoreArray} damage`); // debug
@@ -23,7 +23,7 @@ function Character(data) {
       this.health = 0;
     }
   }
-
+  // handle building the character health bar
   this.getHealthBarHtml = function() {
     const percent = getHealthPercentage(this.health, this.maxHealth);
     console.log(percent); // debug
@@ -35,7 +35,7 @@ function Character(data) {
         </div>
       </div>`
   }
-
+  // handle building the character card html
   this.getCharacterHtml = function() {
     const { name, avatar, health, diceCount, diceArray } = this;
     const healthBar = this.getHealthBarHtml()
@@ -52,7 +52,6 @@ function Character(data) {
       </div>
     `
   }
-
 }
 
 export default Character

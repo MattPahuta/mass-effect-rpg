@@ -10,21 +10,21 @@ const characterData = {
   orc: {
     name: 'Orc',
     avatar: './assets/orc.png',
-    health: 25,
+    health: 15,
     diceCount: 2,
     currentDiceScore: []
   },
   demon: {
     name: "Demon",
-    avatar: "images/demon.png",
+    avatar: "./assets/demon.png",
     health: 25,
     diceCount: 2,
     currentDiceScore: []
   },
   goblin: {
       name: "Goblin",
-      avatar: "images/goblin.png",
-      health: 20,
+      avatar: "./assets/goblin.png",
+      health: 30,
       diceCount: 3,
       currentDiceScore: []
   },

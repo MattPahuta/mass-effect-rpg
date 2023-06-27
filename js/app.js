@@ -12,19 +12,34 @@ function getNewMonster() {
   // assign nextMonsterData to first el in monsters array
   // get the right object from characterData using bracket syntax 
   const nextMonsterData = characterData[monstersArray.shift()];
-  // return monstersArray.length < 1 ? {} : new Character(nextMonsterData)
-  return monstersArray.length ? new Character(nextMonsterData) : {};
+  // console.log(Boolean(nextMonsterData))
+  // nextMonsterData evaluate true? get new character, otherwise return empty object
+  return nextMonsterData ? new Character(nextMonsterData) : {};
 }
 
 // attack button
 function attack() {
-  console.log('attacking!'); // debug
   wizard.getDiceHtml();
   monster.getDiceHtml();
   wizard.takeDamage(monster.currentDiceScore);
   monster.takeDamage(wizard.currentDiceScore);
   render();
-  if (wizard.dead || monster.dead) endGame();
+
+  if (wizard.dead) { // hero dead?
+    endGame(); // end the game
+  } else if (monster.dead) { // hero alive and monster dead?
+      if (monstersArray.length) { // anymore monsters to fight?
+        setTimeout(() => { // wait a second or so...
+          monster = getNewMonster(); // yes? get anotha one, assign to monster
+          console.log(monster)
+          render(); // render the monster
+        }, 1500);
+      } else {
+        endGame();
+    }
+  }
+
+  // if (wizard.dead || monster.dead) endGame();
 }
 
 // end of game behavior
@@ -38,14 +53,15 @@ function endGame() {
   : 'Nobody wins in war. Everyone is dead.'
 
   const endEmoji = wizard.health > 0 ? '🔮' : '☠️'
-  document.getElementById('game-container').innerHTML = `
-    <div class="end-game">
-      <h2>Game Over</h2>
-      <h3>${endMessage}</h3>
-      <p class="end-emoji">${endEmoji}</p>
-    </div>` 
 
-  console.log(endMessage)
+  setTimeout(() => { // wait a 1.5 seconds...
+    document.getElementById('game-container').innerHTML = `
+      <div class="end-game">
+        <h2>Game Over</h2>
+        <h3>${endMessage}</h3>
+        <p class="end-emoji">${endEmoji}</p>
+      </div>` 
+  }, 1500)
 }
 
 // render characters 
