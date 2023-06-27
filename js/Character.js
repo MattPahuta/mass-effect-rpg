@@ -1,4 +1,4 @@
-import { getDicePlaceholderHtml, getDiceRollArray, getPercentage } from "./utils.js";
+import { getDicePlaceholderHtml, getDiceRollArray, getHealthPercentage } from "./utils.js";
 
 // Character constructor function
 function Character(data) {
@@ -25,7 +25,7 @@ function Character(data) {
   }
 
   this.getHealthBarHtml = function() {
-    const percent = getPercentage(this.health, this.maxHealth);
+    const percent = getHealthPercentage(this.health, this.maxHealth);
     console.log(percent); // debug
 
     return `
