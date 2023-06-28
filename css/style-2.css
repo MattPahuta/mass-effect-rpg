@@ -131,7 +131,11 @@ main {
   width: 20vh;
   aspect-ratio: 1/ 1.25;
   border: 1px solid red;
+  background-image: url('../assets/MassEffectLegendaryEdition_Texture-6.jpg');
+}
 
+.character-card img.hero-avatar {
+  object-fit: contain;
 }
 
 .health-bar-outer {
