@@ -1,5 +1,3 @@
-// import characterData from "./data.js";
-
 // Generate a random dice roll array, based on diceCount parameter
 function getDiceRollArray(diceCount) {
   // build new array, populate with zero placeholder val, map over and replace with the random roll result
@@ -10,12 +8,8 @@ function getDiceRollArray(diceCount) {
 function getDicePlaceholderHtml(diceCount) {
   return new Array(diceCount).fill(0).map(() => {
     return `<div class="placeholder-dice"></div>`
-  }).join('')
+  }).join('');
 }
-
-
-// *** change to getHealthPercentage, change to function declaration?
-// const getPercentage = (remainingHealth, maximumHealth) => (100 * remainingHealth) / maximumHealth;
 
 // Get health bar percentage, return % of maximum health remaining
 function getHealthPercentage(remainingHealth, maximumHealth) {
